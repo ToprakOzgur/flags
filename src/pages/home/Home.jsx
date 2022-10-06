@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import CountryCard from "../../components/CountryCard/CountryCard.jsx";
 import { CountriesContext } from "../../context/countries/countriesContext.js";
 import { getRandomCountries } from "../../helpers/getRandomCountries.js";
-import Filter from "../../components/Filter/Filter";
 import Search from "../../components/Search/Search";
 
 const START_COUNT = 8;
@@ -23,10 +22,8 @@ const Home = () => {
   return (
     <>
       <main>
-        <div className="search">
-          <Search />
-          <Filter />
-        </div>
+        <Search />
+
         <section className="cards">
           {displayingCountries.length > 0 ? displayingCountries.map((country) => <CountryCard key={country.ccn3} country={country} />) : <h3>loading...</h3>}
         </section>

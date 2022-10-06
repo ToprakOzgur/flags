@@ -1,25 +1,55 @@
-import React, { useState, useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { CountriesContext } from "../../context/countries/countriesContext";
 
 const Search = () => {
-  const { allCountries: all, displayingCountries, setDisplayingCountries } = useContext(CountriesContext);
+  const { allCountries, setDisplayingCountries } = useContext(CountriesContext);
+  const [input, setInput] = useState("");
+  const [continent, setContinent] = useState("all");
+
+  useEffect(() => {
+    if (!input) return;
+
+    if (continent === "all") {
+      const searched_Countries = allCountries.filter((country) => country.name.common.toLowerCase().includes(input.toLowerCase()));
+      setDisplayingCountries(searched_Countries);
+    } else {
+      const searched_Countries = allCountries.filter(
+        (country) => country.name.common.toLowerCase().includes(input.toLowerCase()) && country.region.toLowerCase() === continent.toLowerCase()
+      );
+      setDisplayingCountries(searched_Countries);
+    }
+  }, [input, allCountries, continent]);
 
   function handleSubmit(e) {
     e.preventDefault();
   }
 
   function handleInput(e) {
-    const value = e.target.value;
-
-    if (!value) return;
-    const searched_Countries = all.filter((country) => country.name.common.toLowerCase().includes(value));
-    setDisplayingCountries(searched_Countries);
+    setInput(e.target.value);
   }
+
+  function searchRegion(e) {
+    setContinent(e.target.value);
+  }
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <input type="text" onChange={handleInput} />
+        <input type="text" onChange={handleInput} value={input} />
       </form>
+      <div className="RegionType">
+        <select onChange={searchRegion}>
+          <option defaultValue={"all"} value={"all"}>
+            Search By Region
+          </option>
+          <option value={"Asia"}>Asia</option>
+          <option value={"Africa"}>Africa</option>
+          <option value={"Oceania"}>Oceania</option>
+          <option value={"Americas"}>Americas</option>
+          <option value={"Europe"}>Europe</option>
+          <option value={"Antarctic"}>Antarctic</option>
+        </select>
+      </div>
     </div>
   );
 };
