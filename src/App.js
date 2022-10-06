@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.scss";
+import "./styles/themes/dark.scss";
+import { useContext } from "react";
+import { DarkModeContext } from "./context/darkMode/darkModeContext";
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar/Navbar";
+import Home from "./pages/home/Home";
+import Details from "./pages/Details/Details";
+import Error from "./pages/Error/Error";
+
 
 function App() {
+  const { darkMode } = useContext(DarkModeContext);
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={darkMode ? "app dark" : "app"}>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path='/details/:name' element={<Details />} />
+        <Route path="*" element={<Error />} />
+      </Routes>
     </div>
   );
 }
