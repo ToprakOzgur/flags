@@ -7,8 +7,6 @@ const Search = () => {
   const [continent, setContinent] = useState("all");
 
   useEffect(() => {
-    if (!input) return;
-
     if (continent === "all") {
       const searched_Countries = allCountries.filter((country) => country.name.common.toLowerCase().includes(input.toLowerCase()));
       setDisplayingCountries(searched_Countries);

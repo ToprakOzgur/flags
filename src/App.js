@@ -8,17 +8,15 @@ import Home from "./pages/home/Home";
 import Details from "./pages/Details/Details";
 import Error from "./pages/Error/Error";
 
-
 function App() {
   const { darkMode } = useContext(DarkModeContext);
-
 
   return (
     <div className={darkMode ? "app dark" : "app"}>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path='/details/:name' element={<Details />} />
+        <Route path="/details/:name" element={<Details />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </div>
