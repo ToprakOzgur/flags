@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { getCountry } from "../../helpers/getCountry";
 import { CountriesContext } from "../../context/countries/countriesContext";
+
 const Details = () => {
   const location = useLocation();
   const navigate = useNavigate();

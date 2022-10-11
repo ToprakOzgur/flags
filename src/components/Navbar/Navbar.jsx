@@ -1,12 +1,13 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
-const Navbar = () => {
-    return (
-        <>
-            <nav>Navbar</nav>
-            <Outlet />
-        </>
-    )
-}
+import React from "react";
+import { Outlet } from "react-router-dom";
 
-export default Navbar
+const Navbar = () => {
+  return (
+    <>
+      <nav>Navbar</nav>
+      <Outlet />
+    </>
+  );
+};
+
+export default Navbar;

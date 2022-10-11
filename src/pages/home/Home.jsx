@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
-import CountryCard from "../../components/CountryCard/CountryCard.jsx";
+
 import { CountriesContext } from "../../context/countries/countriesContext.js";
 import { getRandomCountries } from "../../helpers/getRandomCountries.js";
-import Search from "../../components/Search/Search";
+import { CountryCard, Search } from "../../components";
 
 const START_COUNT = 8;
 
