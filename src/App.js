@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { DarkModeContext } from "./context/darkMode/darkModeContext";
 import { Routes, Route } from "react-router-dom";
 
-import { Navbar } from "./components";
+import { Layout } from "./components";
 import { Home, Details, Error } from "./pages";
 
 function App() {
@@ -12,12 +12,13 @@ function App() {
 
   return (
     <div className={darkMode ? "app dark" : "app"}>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/details/:name" element={<Details />} />
-        <Route path="*" element={<Error />} />
-      </Routes>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/details/:name" element={<Details />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </Layout>
     </div>
   );
 }
