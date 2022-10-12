@@ -1,6 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
+import "./CountryCard.scss";
+
 const CountryCard = ({ country }) => {
   let navigate = useNavigate();
 
@@ -9,11 +11,11 @@ const CountryCard = ({ country }) => {
   };
 
   return (
-    <article onClick={handleClick}>
-      <h2>{country.name.common}</h2>
-      <div>
+    <article className="card" onClick={handleClick}>
+      <div className="flag">
         <img src={country.flags.png} alt={`${country.name.common} flag`} />
       </div>
+      <h4>{country.name.common}</h4>
       <ul>
         <li>
           Population: <span>{country.population}</span>

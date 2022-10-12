@@ -7,8 +7,18 @@
   padding: 0;
   box-sizing: border-box;
 }
+input {
+  color: inherit;
+}
 
 body {
-  background-color: $dark-blue;
+  min-height: 100vh;
+  background-color: $very-light-gray;
   font-family: $main-font-family;
+  color: $very-dark-blue-light-mode-text;
+}
+
+main {
+  padding-inline: $inline-padding;
+  padding-block: 40px;
 }

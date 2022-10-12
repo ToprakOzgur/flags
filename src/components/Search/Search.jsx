@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { CountriesContext } from "../../context/countries/countriesContext";
-
+import "./Search.scss";
 const Search = () => {
   const { allCountries, setDisplayingCountries } = useContext(CountriesContext);
   const [input, setInput] = useState("");
@@ -31,19 +31,19 @@ const Search = () => {
   }
 
   return (
-    <div>
+    <div className="search">
       <form onSubmit={handleSubmit}>
-        <input type="text" onChange={handleInput} value={input} />
+        <input type="text" onChange={handleInput} value={input} placeholder="Search for a country.." />
       </form>
       <div className="RegionType">
         <select onChange={searchRegion}>
           <option defaultValue={"all"} value={"all"}>
-            Search By Region
+            Filter By Region
           </option>
           <option value={"Asia"}>Asia</option>
           <option value={"Africa"}>Africa</option>
           <option value={"Oceania"}>Oceania</option>
-          <option value={"Americas"}>Americas</option>
+          <option value={"Americas"}>America</option>
           <option value={"Europe"}>Europe</option>
           <option value={"Antarctic"}>Antarctic</option>
         </select>

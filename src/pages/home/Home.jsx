@@ -5,6 +5,8 @@ import { CountriesContext } from "../../context/countries/countriesContext.js";
 import { getRandomCountries } from "../../helpers/getRandomCountries.js";
 import { CountryCard, Search } from "../../components";
 
+import "./home.scss";
+
 const START_COUNT = 8;
 
 const Home = () => {
@@ -28,10 +30,6 @@ const Home = () => {
           {displayingCountries.length > 0 ? displayingCountries.map((country) => <CountryCard key={country.ccn3} country={country} />) : <h3>loading...</h3>}
         </section>
       </main>
-
-      <Link style={{ display: "block", margin: "1rem 0", color: "black" }} to="details">
-        Details
-      </Link>
     </>
   );
 };
