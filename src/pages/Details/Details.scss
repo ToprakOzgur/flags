@@ -1,0 +1,60 @@
+@use "../../styles/abstracts/" as *;
+
+.details {
+  font-family: $main-font-family;
+  font-size: 14px;
+  button {
+    border: none;
+    font-size: 14px;
+    padding-inline: 20px;
+    border-radius: 5px;
+    padding-block: 5px;
+    box-shadow: 0px 3px 3px 3px hsl(0, 0%, 90%);
+    background-color: $very-light-gray;
+    font-family: $main-font-family;
+    display: flex;
+    align-items: start;
+    gap: 5px;
+  }
+  figure {
+    flex: 4;
+
+    img {
+      width: 100%;
+    }
+  }
+  section {
+    margin-top: 50px;
+    display: flex;
+
+    gap: 5%;
+  }
+
+  article {
+    flex: 6;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .borders {
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      font-family: $main-font-family;
+      p {
+        white-space: nowrap;
+      }
+    }
+
+    .details__info {
+      display: flex;
+      gap: 20%;
+      font-weight: bold;
+      line-height: 1.8;
+      span {
+        font-weight: normal;
+      }
+    }
+  }
+}

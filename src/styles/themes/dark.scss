@@ -1,12 +1,30 @@
 @use "../abstracts" as *;
 
 .app.dark {
-  min-height: 100vh;
   background-color: $very-dark-blue;
   color: $white;
 
   .nav {
     background-color: $dark-blue;
+  }
+
+  .search__form input,
+  .search__filter,
+  .nav,
+  .card {
     box-shadow: none;
+  }
+
+  .card {
+    background-color: $dark-blue;
+    font-size: 13px;
+  }
+  .search__form input,
+  .search__filter,
+  .search__filter select,
+  .search__form input::placeholder,
+  h1 {
+    background-color: $dark-blue;
+    color: $white;
   }
 }

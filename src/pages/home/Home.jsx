@@ -27,7 +27,7 @@ const Home = () => {
         <Search />
 
         <section className="cards">
-          {displayingCountries.length > 0 ? displayingCountries.map((country) => <CountryCard key={country.ccn3} country={country} />) : <h3>loading...</h3>}
+          {displayingCountries.length > 0 ? displayingCountries.map((country) => <CountryCard key={country.ccn3} country={country} />) : <h3>Not Found...</h3>}
         </section>
       </main>
     </>

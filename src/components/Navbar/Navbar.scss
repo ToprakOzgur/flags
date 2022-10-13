@@ -10,8 +10,19 @@
   background-color: $white;
 
   box-shadow: 0px 5px 6px -1px hsl(0, 0%, 90%);
+  .theme-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    p {
+      font-weight: 600;
+    }
+  }
 
-  p {
-    font-weight: 600;
+  .link {
+    text-decoration: none;
+  }
+  .link:visited {
+    color: $very-dark-blue;
   }
 }

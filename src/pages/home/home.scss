@@ -1,8 +1,13 @@
 .cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
-  row-gap: 50px;
+  // display: grid;
+  // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  // row-gap: 50px;
 
-  justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
+  justify-content: space-evenly;
+
   font-size: 14px;
 }

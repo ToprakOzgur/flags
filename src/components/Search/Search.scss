@@ -1,5 +1,45 @@
+@use "../../styles/abstracts/" as *;
+
 .search {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 30px;
+
+  .search__form {
+    width: minmax(200px, 60%);
+    display: flex;
+    align-items: center;
+    input {
+      width: 400px;
+      border-radius: 5px;
+      border: none;
+      background-color: $white;
+      padding: 10px;
+      box-shadow: 0px 5px 6px -1px hsl(0, 0%, 90%);
+      font-family: inherit;
+      padding-left: 40px;
+      font-size: 13px;
+    }
+    .search__icon {
+      transform: translateX(25px);
+      color: $dark-gray;
+
+      width: 15px;
+    }
+  }
+
+  .search__filter {
+    padding: 10px;
+    box-shadow: 0px 5px 6px -1px hsl(0, 0%, 90%);
+    border-radius: 5px;
+    background-color: $white;
+
+    select {
+      border: none;
+      font-size: 13px;
+      font-family: inherit;
+      padding: 10px;
+    }
+  }
 }

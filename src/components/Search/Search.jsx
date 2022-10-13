@@ -1,6 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { CountriesContext } from "../../context/countries/countriesContext";
+
 import "./Search.scss";
+import { FaSearch } from "react-icons/fa";
+
 const Search = () => {
   const { allCountries, setDisplayingCountries } = useContext(CountriesContext);
   const [input, setInput] = useState("");
@@ -32,15 +35,18 @@ const Search = () => {
 
   return (
     <div className="search">
-      <form onSubmit={handleSubmit}>
+      <form className="search__form" onSubmit={handleSubmit}>
+        <FaSearch className="search__icon" />
         <input type="text" onChange={handleInput} value={input} placeholder="Search for a country.." />
       </form>
-      <div className="RegionType">
+      <div className="search__filter">
         <select onChange={searchRegion}>
           <option defaultValue={"all"} value={"all"}>
             Filter By Region
           </option>
-          <option value={"Asia"}>Asia</option>
+          <option className="deneme" value={"Asia"}>
+            Asia
+          </option>
           <option value={"Africa"}>Africa</option>
           <option value={"Oceania"}>Oceania</option>
           <option value={"Americas"}>America</option>

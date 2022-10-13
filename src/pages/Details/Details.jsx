@@ -1,7 +1,10 @@
 import React, { useContext } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { getCountry } from "../../helpers/getCountry";
 import { CountriesContext } from "../../context/countries/countriesContext";
+import { FaLongArrowAltLeft } from "react-icons/fa";
+
+import "./Details.scss";
 
 const Details = () => {
   const location = useLocation();
@@ -24,53 +27,58 @@ const Details = () => {
   };
 
   return (
-    <main>
+    <main className="details">
       <button
         onClick={() => {
           navigate(-1);
         }}
       >
+        <FaLongArrowAltLeft />
         Back
       </button>
-
-      <figure>
-        <img src={location.state.flags.png} alt={`${location.state.name.common} flag`} />
-      </figure>
       <section>
-        <h2>{location.state.name.common}</h2>
-        <div>
-          Native Name: <span>{location.state.altSpellings[1]}</span>
-        </div>
-        <div>
-          Population: <span>{location.state.population}</span>
-        </div>
-        <div>
-          Region: <span>{location.state.region}</span>
-        </div>
-        <div>
-          Sub Region: <span>{location.state.subregion}</span>
-        </div>
-        <div>
-          Capital: <span>{location.state.capital}</span>
-        </div>
-        <div>
-          Top Level Domain: <span>{location.state.tld}</span>
-        </div>
-        <div>
-          Currencies: <span>{location.state.currencies[Object.keys(location.state.currencies)].name}</span>
-        </div>
-        <div>
-          Languages: <span>{Object.values(location.state.languages).join(", ")}</span>
-        </div>
+        <figure>
+          <img src={location.state.flags.png} alt={`${location.state.name.common} flag`} />
+        </figure>
+        <article>
+          <h2>{location.state.name.common}</h2>
 
-        <div>
-          Border Countries: <span>{getBorderCountries(location.state.borders)}</span>
-        </div>
+          <div className="details__info">
+            <div>
+              <div>
+                Native Name: <span>{location.state.altSpellings[1]}</span>
+              </div>
+              <div>
+                Population: <span>{location.state.population}</span>
+              </div>
+              <div>
+                Region: <span>{location.state.region}</span>
+              </div>
+              <div>
+                Sub Region: <span>{location.state.subregion}</span>
+              </div>
+              <div>
+                Capital: <span>{location.state.capital}</span>
+              </div>
+            </div>
+            <div>
+              <div>
+                Top Level Domain: <span>{location.state.tld}</span>
+              </div>
+              <div>
+                Currencies: <span>{location.state.currencies[Object.keys(location.state.currencies)].name}</span>
+              </div>
+              <div>
+                Languages: <span>{Object.values(location.state.languages).join(", ")}</span>
+              </div>
+            </div>
+          </div>
+          <div className="borders">
+            <p>Border Countries: </p>
+            {getBorderCountries(location.state.borders)}
+          </div>
+        </article>
       </section>
-
-      <Link style={{ display: "block", margin: "1rem 0", color: "black" }} to="/">
-        Home
-      </Link>
     </main>
   );
 };

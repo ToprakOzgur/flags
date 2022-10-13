@@ -21,4 +21,5 @@ body {
 main {
   padding-inline: $inline-padding;
   padding-block: 40px;
+  min-height: 100vh;
 }
