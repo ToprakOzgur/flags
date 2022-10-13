@@ -44,9 +44,7 @@ const Search = () => {
           <option defaultValue={"all"} value={"all"}>
             Filter By Region
           </option>
-          <option className="deneme" value={"Asia"}>
-            Asia
-          </option>
+          <option value={"Asia"}>Asia</option>
           <option value={"Africa"}>Africa</option>
           <option value={"Oceania"}>Oceania</option>
           <option value={"Americas"}>America</option>

@@ -11,7 +11,8 @@
   .search__form input,
   .search__filter,
   .nav,
-  .card {
+  .card,
+  .details button {
     box-shadow: none;
   }
 
@@ -23,7 +24,8 @@
   .search__filter,
   .search__filter select,
   .search__form input::placeholder,
-  h1 {
+  h1,
+  .details button {
     background-color: $dark-blue;
     color: $white;
   }

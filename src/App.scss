@@ -22,4 +22,10 @@ main {
   padding-inline: $inline-padding;
   padding-block: 40px;
   min-height: 100vh;
+
+  @include devices(phone) {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-inline: 25px;
+  }
 }

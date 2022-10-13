@@ -16,8 +16,6 @@ const Home = () => {
     if (all.length > 0) {
       const start_with_random_countries = getRandomCountries(all, START_COUNT);
       setDisplayingCountries(start_with_random_countries);
-    } else {
-      console.log(all);
     }
   }, [all, setDisplayingCountries]);
 

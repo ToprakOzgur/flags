@@ -14,8 +14,10 @@
     display: flex;
     align-items: center;
     gap: 10px;
+
     p {
       font-weight: 600;
+      white-space: nowrap;
     }
   }
 
@@ -24,5 +26,18 @@
   }
   .link:visited {
     color: $very-dark-blue;
+  }
+
+  //mobile
+  h1 {
+    @include devices(phone) {
+      font-size: 18px;
+    }
+  }
+  .theme-button {
+    @include devices(phone) {
+      font-size: 14px;
+      gap: 2px;
+    }
   }
 }

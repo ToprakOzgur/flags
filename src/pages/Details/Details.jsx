@@ -9,17 +9,22 @@ import "./Details.scss";
 const Details = () => {
   const location = useLocation();
   const navigate = useNavigate();
-
+  console.log(location.state);
   const { allCountries } = useContext(CountriesContext);
 
   function getBorderCountries(bordersArray) {
     const borderCountry = bordersArray?.map((code) => getCountry(allCountries, code));
-    //return borderCountry?.map((country) => country?.name?.common).join(", ");
+
     return borderCountry?.map((country) => (
       <button key={country.cca3} onClick={() => handleClick(country)}>
         {country?.name?.common}
       </button>
     ));
+  }
+
+  function getCurrencies() {
+    if (location.state.currencies) return location.state.currencies[Object.keys(location.state.currencies)].name;
+    return "none";
   }
 
   const handleClick = (country) => {
@@ -66,17 +71,20 @@ const Details = () => {
                 Top Level Domain: <span>{location.state.tld}</span>
               </div>
               <div>
-                Currencies: <span>{location.state.currencies[Object.keys(location.state.currencies)].name}</span>
+                Currencies: <span>{location.state.currencies && location.state.currencies[Object.keys(location.state.currencies)].name}</span>
               </div>
+
               <div>
-                Languages: <span>{Object.values(location.state.languages).join(", ")}</span>
+                Languages: <span>{location.state.languages && Object.values(location.state.languages).join(", ")}</span>
               </div>
             </div>
           </div>
-          <div className="borders">
-            <p>Border Countries: </p>
-            {getBorderCountries(location.state.borders)}
-          </div>
+          {location.state.borders && (
+            <div className="borders">
+              <p>Border Countries: </p>
+              {getBorderCountries(location.state.borders)}
+            </div>
+          )}
         </article>
       </section>
     </main>
